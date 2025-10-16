@@ -1,3 +1,4 @@
+import 'dotenv/config'
 import express from 'express';
 import morgan from 'morgan';
 import cors from 'cors';
@@ -9,6 +10,8 @@ import imageRouter from './routes/image-route.js';
 import commentRouter from './routes/comment-route.js';
 import tagRouter from './routes/tag-route.js';
 import rankRouter from './routes/rank-route.js';
+import recommendRouter from './routes/recommend-route.js'
+import debugRoute from './routes/debug-route.js';
 
 import errorHandler from './middlewares/error-middleware.js';
 import uploadsDir from './config/uploads-path.js';
@@ -36,7 +39,11 @@ export default class Server {
       console.log(`uploads 폴더 생성`);
     }
 
-    this.#app.use(cors());
+    this.#app.use(cors({
+      origin: ['http://localhost:3000'], credentials: true
+      
+    }));
+
     this.#app.use(morgan('dev'));
     this.#app.use(express.json());
     this.#app.use(express.urlencoded({ extended: true }));
@@ -48,6 +55,7 @@ export default class Server {
   // 라우터 등록
   // this.#app.use('/api/users', userRouter);
   #initializeRouters() {
+    this.#app.use('/debug', debugRoute);
     this.#app.use('/', rootRouter);
     this.#app.use('/images', imageRouter);
     this.#app.use('/ranking', rankRouter);
@@ -57,6 +65,7 @@ export default class Server {
     this.#app.use('/comments', commentRouter);
     this.#app.use('/logs', logRouter);
     this.#app.use('/docs', docRouter);
+    this.#app.use('/recommend', recommendRouter)
   }
 
   // 에러 핸들러 등록

@@ -111,7 +111,7 @@ export const createCurationForStyle = async ({
 
   if (!style) {
     const error = new Error('스타일을 찾을 수 없습니다.');
-    error.statusCode = 404; 
+    error.statusCode = 404;
     throw error;
   }
 
@@ -213,4 +213,26 @@ export const getCurationList = async ({ styleId, page, pageSize, searchBy, keywo
     totalItemCount,
     data: curations,
   };
+};
+
+// 특정 tagId 배열로 스타일 조회
+export const findStylesByTagIds = async (tagIds, limit = 60) => {
+  if (!tagIds?.length) return [];
+
+  const styles = await db.style.findMany({
+    where: {
+      styleTags: {
+        some: { tagId: { in: tagIds } },
+      },
+    },
+    include: {
+      categories: true,
+      styleTags: { include: { tag: true } },
+      styleImages: { include: { image: true } },
+    },
+    take: limit,
+    orderBy: { createdAt: 'desc' },
+  });
+
+  return styles;
 };

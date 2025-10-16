@@ -1,29 +1,19 @@
+import 'dotenv/config';
 import admin from 'firebase-admin';
 
-if (!process.env.FIREBASE_CONFIG) {
-  console.error('.env에 FIREBASE_CONFIG 내용 없음');
-  process.exit(1);
-}
-
-let serviceAccount;
-
-try {
-  serviceAccount = JSON.parse(process.env.FIREBASE_CONFIG);
-
-  // 줄바꿈 복원
-  if (typeof serviceAccount.private_key === 'string') {
-    serviceAccount.private_key = serviceAccount.private_key.replace(/\\n/g, '\n');
-  }
-} catch (error) {
-  console.error('FIREBASE_CONFIG 파싱 실패:', error);
+const { FIREBASE_PROJECT_ID, FIREBASE_CLIENT_EMAIL, FIREBASE_PRIVATE_KEY } = process.env;
+if (!FIREBASE_PROJECT_ID || !FIREBASE_CLIENT_EMAIL || !FIREBASE_PRIVATE_KEY) {
+  throw new Error('Firebase env keys missing');
 }
 
 if (!admin.apps.length) {
   admin.initializeApp({
-    credential: admin.credential.cert(serviceAccount),
-    storageBucket: 'gs://nb02-how-do-i-look-storage.firebasestorage.app',
+    credential: admin.credential.cert({
+      projectId: FIREBASE_PROJECT_ID,
+      clientEmail: FIREBASE_CLIENT_EMAIL,
+      privateKey: FIREBASE_PRIVATE_KEY.replace(/\\n/g, '\n'),
+    }),
+    storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
   });
 }
-
-const bucket = admin.storage().bucket();
-export default bucket;
+export default admin.storage().bucket();
