@@ -2,6 +2,7 @@ import 'dotenv/config';
 import admin from 'firebase-admin';
 
 const { FIREBASE_PROJECT_ID, FIREBASE_CLIENT_EMAIL, FIREBASE_PRIVATE_KEY } = process.env;
+
 if (!FIREBASE_PROJECT_ID || !FIREBASE_CLIENT_EMAIL || !FIREBASE_PRIVATE_KEY) {
   throw new Error('Firebase env keys missing');
 }
@@ -16,4 +17,8 @@ if (!admin.apps.length) {
     storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
   });
 }
-export default admin.storage().bucket();
+
+const bucket = admin.storage().bucket();
+console.log('Using bucket:', bucket.name);
+
+export default bucket;
