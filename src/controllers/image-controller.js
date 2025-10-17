@@ -40,7 +40,7 @@ class ImageUploadController {
 
       const uploaded = await this.imageService.createImage({ imageUrl: url });
 
-      // ✅ 프론트 명세에 맞게 string으로 단일 응답
+      // 프론트 명세에 맞게 string으로 단일 응답
       return res.status(200).json({ imageUrl: uploaded.imageUrl });
     } catch (error) {
       next(error);
