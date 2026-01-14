@@ -5,7 +5,9 @@
         "outDir": "./dist",
         "moduleResolution": "node",
         "lib": ["ES2015", "DOM", "DOM.Iterable"],
-        "esModuleInterop": true
+        "esModuleInterop": true,
+        "noEmit": true,
+        "allowImportingTsExtensions": true,
     },
     "include": ["./src/**/*"],
     "exclude": ["node_modules", "dist"]
