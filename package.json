@@ -30,7 +30,6 @@
   },
   "homepage": "https://github.com/gyunam-bark/nb02-how-do-i-look-team1#readme",
   "dependencies": {
-    "@prisma/client": "^6.8.2",
     "bcrypt": "^6.0.0",
     "cors": "^2.8.5",
     "dotenv": "^16.5.0",
@@ -43,11 +42,13 @@
   },
   "type": "module",
   "devDependencies": {
+    "@prisma/client": "^6.9.0",
     "eslint": "^9.28.0",
     "eslint-config-prettier": "^10.1.5",
     "eslint-plugin-prettier": "^5.4.1",
     "nodemon": "^3.1.10",
     "prettier": "^3.5.3",
-    "prisma": "^6.9.0"
+    "prisma": "^6.9.0",
+    "typescript": "^5.9.3"
   }
 }
