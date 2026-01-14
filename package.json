@@ -43,6 +43,8 @@
   "type": "module",
   "devDependencies": {
     "@prisma/client": "^6.9.0",
+    "@types/cors": "^2.8.19",
+    "@types/morgan": "^1.9.10",
     "eslint": "^9.28.0",
     "eslint-config-prettier": "^10.1.5",
     "eslint-plugin-prettier": "^5.4.1",
