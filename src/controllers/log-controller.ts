@@ -1,4 +1,4 @@
-import LogService from '../services/log-service.js';
+import LogService from '../services/log-service.ts';
 
 export default class LogController {
   static handleGetLogList = async (req, res, next) => {

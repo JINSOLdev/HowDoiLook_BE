@@ -1,5 +1,5 @@
 import { PrismaClient } from '@prisma/client';
-import { hashPassword } from '../src/utils/hash-password.js';
+import { hashPassword } from '../src/utils/hash-password.ts';
 const prisma = new PrismaClient();
 
 async function main() {
@@ -14,7 +14,6 @@ async function main() {
 
   // 공통 해시 비밀번호
   const commonPassword = await hashPassword('password1234');
-
 
   // 1. Seed 태그 (중복 방지)
   const tagNames = ['캐주얼', '스트릿', '미니멀', '포멀', '빈티지', '스포티', '러블리', '여름', '겨울', '컬러풀'];

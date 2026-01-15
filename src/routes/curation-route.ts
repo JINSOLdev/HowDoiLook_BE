@@ -1,12 +1,12 @@
 import { Router } from 'express';
-import { CurationController } from '../controllers/curation-controller.js';
-import { CommentController } from '../controllers/comment-controller.js';
+import { CurationController } from '../controllers/curation-controller.ts';
+import { CommentController } from '../controllers/comment-controller.ts';
 import {
   validateRequest,
   createCommentSchema,
   deleteCurationSchema,
   updateCurationSchema,
-} from '../middlewares/dto-middleware.js';
+} from '../middlewares/dto-middleware.ts';
 
 const router = Router();
 

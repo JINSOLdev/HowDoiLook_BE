@@ -1,6 +1,6 @@
 import Router from 'express';
-import { CommentController } from '../controllers/comment-controller.js';
-import { validateRequest, updateCommentSchema, deleteCommentSchema } from '../middlewares/dto-middleware.js';
+import { CommentController } from '../controllers/comment-controller.ts';
+import { validateRequest, updateCommentSchema, deleteCommentSchema } from '../middlewares/dto-middleware.ts';
 
 const router = Router();
 

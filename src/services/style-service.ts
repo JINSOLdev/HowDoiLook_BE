@@ -1,5 +1,5 @@
-import db from '../config/db.js';
-import { hashPassword } from '../utils/hash-password.js';
+import db from '../config/db.ts';
+import { hashPassword } from '../utils/hash-password.ts';
 
 // 스타일 등록
 export const createStyle = async ({ nickname, title, content, password, categories, tags, images }) => {
@@ -111,7 +111,7 @@ export const createCurationForStyle = async ({
 
   if (!style) {
     const error = new Error('스타일을 찾을 수 없습니다.');
-    error.statusCode = 404; 
+    error.statusCode = 404;
     throw error;
   }
 

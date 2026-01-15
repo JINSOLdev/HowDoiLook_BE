@@ -1,6 +1,6 @@
-import db from '../config/db.js';
-import { comparePassword } from '../utils/compare-password.js';
-import { hashPassword } from '../utils/hash-password.js';
+import db from '../config/db.ts';
+import { comparePassword } from '../utils/compare-password.ts';
+import { hashPassword } from '../utils/hash-password.ts';
 
 export const createCurationService = async ({
   styleId,
@@ -123,7 +123,7 @@ export const updateCurationService = async (
     throw error;
   }
   // 2. 비밀번호 일치 확인 comparePassword
-  if (!await comparePassword(password, existingCuration.password)) {
+  if (!(await comparePassword(password, existingCuration.password))) {
     const error = new Error('비밀번호가 일치하지 않습니다.');
     error.statusCode = 403;
     throw error;
@@ -159,7 +159,7 @@ export const deleteCurationService = async (curationId, password) => {
   }
 
   // 2. 비밀번호 일치 확인 comparePassword
-  if (!await comparePassword(password, existingCuration.password)) {
+  if (!(await comparePassword(password, existingCuration.password))) {
     const error = new Error('비밀번호가 일치하지 않습니다.');
     error.statusCode = 403;
     throw error;

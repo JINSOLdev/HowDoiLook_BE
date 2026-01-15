@@ -1,6 +1,6 @@
 import { Router } from 'express';
-import upload from '../middlewares/multer-middleware.js';
-import ImageUploadController from '../controllers/image-controller.js';
+import upload from '../middlewares/multer-middleware.ts';
+import ImageUploadController from '../controllers/image-controller.ts';
 
 const router = Router();
 
@@ -10,5 +10,5 @@ const imageUploadController = new ImageUploadController();
 // 함수 반환하기 위해 bind 메서드 사용
 const imageUpload = imageUploadController.uploadImage.bind(imageUploadController);
 
-router.post('/', upload.single('image'), imageUpload);  // 필드명 수정
+router.post('/', upload.single('image'), imageUpload); // 필드명 수정
 export default router;

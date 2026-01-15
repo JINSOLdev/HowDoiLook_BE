@@ -132,9 +132,9 @@ flowchart TD
 - Tag(/tags)
 
   - 태그 목록을 받기 위한 API
-  - [라우터 코드](./src/routes/tag-route.js)
-  - [컨트롤러 코드](./src/controllers/tag-controller.js)
-  - [서비스 코드](./src/services/tag-service.js)
+  - [라우터 코드](./src/routes/tag-route.ts)
+  - [컨트롤러 코드](./src/controllers/tag-controller.ts)
+  - [서비스 코드](./src/services/tag-service.ts)
   - 요청 예시
 
     ```json
@@ -152,8 +152,8 @@ flowchart TD
 
   - 데이터베이스에 저장된 에러 로그 목록을 받기 위한 API
   - [라우터 코드](./src/routes/log-route.js)
-  - [컨트롤러 코드](./src/controllers/log-controller.js)
-  - [서비스 코드](./src/services/log-service.js)
+  - [컨트롤러 코드](./src/controllers/log-controller.ts)
+  - [서비스 코드](./src/services/log-service.ts)
   - [스키마](./prisma/schema.prisma#L118-L126)
   - 요청 예시
 
@@ -183,7 +183,7 @@ flowchart TD
 
   - 서버 헬스체크를 위한 API
   - [라우터 코드](./src/routes/root-route.js)
-  - [컨트롤러 코드](./src/controllers/root-controller.js)
+  - [컨트롤러 코드](./src/controllers/root-controller.ts)
   - 요청 예시
 
     ```json
@@ -205,7 +205,7 @@ flowchart TD
 - DTO
 
   - 파라미터를 검증하고, 필요에 따라 형변환을 하여 전달하기 위한 미들웨어
-  - [미들웨어 코드](./src/middlewares/dto-middleware.js)
+  - [미들웨어 코드](./src/middlewares/dto-middleware.ts)
   - 각각의 파라미터 검증 후 req.validated 객체로 저장하여 Controller 에 전달
   - 에러 발생 시 Global Error Handler 로 에러 전달
 
@@ -221,7 +221,7 @@ flowchart TD
 
   - API 테스트를 위한 Swagger 연동
   - [라우터 코드](./src/routes/doc-route.js)
-  - [미들웨어 코드](./src/middlewares/swagger-middleware.js)
+  - [미들웨어 코드](./src/middlewares/swagger-middleware.ts)
   - [OPENAPI.JSON](./openapi.json)
   - API 명세서 바탕으로 openapi.json 정리
 
@@ -252,8 +252,8 @@ flowchart TD
   - FE 요구사항 반영해 style, tags, categories, imageUrls 모두 명세대로 직렬화/포맷 맞춤 응답
   - Style 삭제 시 외래키 제약(PK-FK) 오류 발생 문제 해결 (cascade delete 등 적용)
   - [라우터 코드](./src/routes/style-route.js)
-  - [컨트롤러 코드](./src/controllers/style-controller.js)
-  - [서비스 코드](./src/services/style-service.js)
+  - [컨트롤러 코드](./src/controllers/style-controller.ts)
+  - [서비스 코드](./src/services/style-service.ts)
 
   - API 요청/응답 예시 (201 Created)
 
@@ -291,10 +291,10 @@ flowchart TD
   - [스키마 코드](./prisma/schema.prisma)
 
 - Seed 데이터 설계
-  - `seed.js`에서 대량의 style/curation/comment 샘플 자동 생성, 실이미지 URL 적용, password 정책 일치화
+  - `seed.ts`에서 대량의 style/curation/comment 샘플 자동 생성, 실이미지 URL 적용, password 정책 일치화
   - 실사용 테스트를 위한 실시간 데이터(프론트/백 모두) 공유 가능하게 구조화
-  - [시드 코드](./prisma/seed.js)
-  - `seed.js` 주요 코드\*\*
+  - [시드 코드](./prisma/seed.ts)
+  - `seed.ts` 주요 코드\*\*
   ```json
   for (const [i, styleData] of styleDatas.entries()) {
     // ... style 생성 ...
@@ -322,9 +322,9 @@ flowchart TD
   - [라우터 코드 (큐레이팅 자체, (PUT, DELETE))](./src/routes/curation-routes.js)
   - [라우터 코드 (스타일 연관, (POST, GET))](./src/routes/style-route.js#L23-L24)
   - [컨트롤러 코드 (큐레이팅 자체, (PUT, DELETE)](./src/controllers/curation-controller.js)
-  - [컨트롤러 코드 (스타일 연관, (POST, GET))](./src/controllers/style-controller.js#L337)
+  - [컨트롤러 코드 (스타일 연관, (POST, GET))](./src/controllers/style-controller.ts#L337)
   - [서비스 코드 (큐레이팅 자체, (PUT, DELETE)](./src/services/curation-service.js)
-  - [서비스 코드 (스타일 연관, (POST, GET)](./src/services/style-service.js#L97)
+  - [서비스 코드 (스타일 연관, (POST, GET)](./src/services/style-service.ts#L97)
 
   - API 응답 예시
 
@@ -490,8 +490,8 @@ flowchart TD
 
   - 스타일 랭킹 목록 조회 및 페이지네이션 처리를 위한 API
   - [라우터 코드](./src/routes/rank-route.js)
-  - [컨트롤러 코드](./src/controllers/rank-controller.js)
-  - [서비스 코드](./src/services/rank-service.js)
+  - [컨트롤러 코드](./src/controllers/rank-controller.ts)
+  - [서비스 코드](./src/services/rank-service.ts)
   - 응답 예시
 
   ```json
@@ -527,8 +527,8 @@ flowchart TD
 
   - 이미지 업로드를 위한 API
   - [라우터 코드](./src/routes/image-route.js)
-  - [컨트롤러 코드](./src/controllers/image-controller.js)
-  - [서비스 코드](./src/services/image-service.js)
+  - [컨트롤러 코드](./src/controllers/image-controller.ts)
+  - [서비스 코드](./src/services/image-service.ts)
 
   - 요청 헤더
 
@@ -567,8 +567,8 @@ flowchart TD
 
   - 큐레이션에 답글을 달기 위한 API
   - [라우터 코드](./src/routes/comment-route.js)
-  - [컨트롤러 코드](./src/controllers/comment-controller.js)
-  - [서비스 코드](./src/services/comment-service.js)
+  - [컨트롤러 코드](./src/controllers/comment-controller.ts)
+  - [서비스 코드](./src/services/comment-service.ts)
 
   - 요청 예시
 
@@ -594,19 +594,19 @@ flowchart TD
 - PASSWORD HASHING (비밀번호 단방향 암호화)
 
   - 보안을 위해 답글 등록 시 password 필드를 bcrypt를 사용해 단방향 해싱 처리
-  - [미들웨어 코드](./src/middlewares/bcrypt-middleware.js)
+  - [미들웨어 코드](./src/middlewares/bcrypt-middleware.ts)
 
-  - [해싱 유틸 코드](./src/utils/hash-password.js)
+  - [해싱 유틸 코드](./src/utils/hash-password.ts)
 
   - 수정/삭제 시 password 검증을 위해  
     요청의 평문 비밀번호와 저장된 해시된 비밀번호를 비교
 
-  - [인증 유틸 코드](./src/utils/compare-password.js)
+  - [인증 유틸 코드](./src/utils/compare-password.ts)
 
   - POST 사용 예시
 
     ```js
-    import { hashPasswordMiddleware } from '../middlewares/bcrypt-middleware.js';
+    import { hashPasswordMiddleware } from '../middlewares/bcrypt-middleware.ts';
 
     router.post('/', validateRequest(createStyleSchema), hashPasswordMiddleware, StyleController.createStyle);
     ```
@@ -614,7 +614,7 @@ flowchart TD
   - PUT/DELETE 사용 예시
 
     ```js
-    import { comparePassword } from '../utils/compare-password.js';
+    import { comparePassword } from '../utils/compare-password.ts';
 
     const isMatch = await comparePassword(plainPassword, hashedPassword);
     if (!isMatch) {
@@ -638,27 +638,27 @@ NB02-HOW-DO-I-LOOK-TEAM1
 ┃ ┣ PULL_REQUEST_TEMPLATE.md
 ┣ prisma
 ┃ ┣ schema.prisma
-┃ ┣ seed.js
+┃ ┣ seed.ts
 ┣ src
 ┃ ┣ config
-┃ ┃ ┣ db.js
-┃ ┃ ┣ firebase-admin.js
+┃ ┃ ┣ db.ts
+┃ ┃ ┣ firebase-admin.ts
 ┃ ┃ ┣ uploads-path.js
 ┃ ┣ controllers
-┃ ┃ ┣ comment-controller.js
+┃ ┃ ┣ comment-controller.ts
 ┃ ┃ ┣ curation-controller.js
-┃ ┃ ┣ image-controller.js
-┃ ┃ ┣ log-controller.js
-┃ ┃ ┣ rank-controller.js
-┃ ┃ ┣ root-controller.js
-┃ ┃ ┣ style-controller.js
-┃ ┃ ┣ tag-controller.js
+┃ ┃ ┣ image-controller.ts
+┃ ┃ ┣ log-controller.ts
+┃ ┃ ┣ rank-controller.ts
+┃ ┃ ┣ root-controller.ts
+┃ ┃ ┣ style-controller.ts
+┃ ┃ ┣ tag-controller.ts
 ┃ ┣ middlewares
-┃ ┃ ┣ bcrypt-middleware.js
-┃ ┃ ┣ dto-middleware.js
+┃ ┃ ┣ bcrypt-middleware.ts
+┃ ┃ ┣ dto-middleware.ts
 ┃ ┃ ┣ error-middleware.js
-┃ ┃ ┣ multer-middleware.js
-┃ ┃ ┣ swagger-middleware.js
+┃ ┃ ┣ multer-middleware.ts
+┃ ┃ ┣ swagger-middleware.ts
 ┃ ┣ routes
 ┃ ┃ ┣ comment-route.js
 ┃ ┃ ┣ curation-route.js
@@ -668,18 +668,18 @@ NB02-HOW-DO-I-LOOK-TEAM1
 ┃ ┃ ┣ rank-route.js
 ┃ ┃ ┣ root-route.js
 ┃ ┃ ┣ style-route.js
-┃ ┃ ┣ tag-route.js
+┃ ┃ ┣ tag-route.ts
 ┃ ┣ services
-┃ ┃ ┣ comment-service.js
+┃ ┃ ┣ comment-service.ts
 ┃ ┃ ┣ curation-service.js
-┃ ┃ ┣ image-service.js
-┃ ┃ ┣ log-service.js
-┃ ┃ ┣ rank-service.js
-┃ ┃ ┣ style-service.js
-┃ ┃ ┣ tag-service.js
+┃ ┃ ┣ image-service.ts
+┃ ┃ ┣ log-service.ts
+┃ ┃ ┣ rank-service.ts
+┃ ┃ ┣ style-service.ts
+┃ ┃ ┣ tag-service.ts
 ┃ ┣ utils
-┃ ┃ ┣ compare-password.js
-┃ ┃ ┣ hash-password.js
+┃ ┃ ┣ compare-password.ts
+┃ ┃ ┣ hash-password.ts
 ┃ ┣ server.js
 ┣ .env.example
 ┣ .gitignore

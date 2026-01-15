@@ -1,6 +1,6 @@
 import express from 'express';
-import LogController from '../controllers/log-controller.js';
-import { validateRequest, getLogListSchema } from '../middlewares/dto-middleware.js';
+import LogController from '../controllers/log-controller.ts';
+import { validateRequest, getLogListSchema } from '../middlewares/dto-middleware.ts';
 
 const logRouter = express.Router();
 

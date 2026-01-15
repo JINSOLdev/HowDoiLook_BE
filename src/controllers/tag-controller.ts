@@ -1,4 +1,4 @@
-import TagService from '../services/tag-service.js';
+import TagService from '../services/tag-service.ts';
 
 export default class TagController {
   static handleGetTagList = async (_req, res, next) => {

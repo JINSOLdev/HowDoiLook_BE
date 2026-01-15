@@ -1,7 +1,7 @@
-import db from '../config/db.js';
-import { createCurationForStyle } from '../services/style-service.js';
-import { getCurationList } from '../services/style-service.js';
-import { comparePassword } from '../utils/compare-password.js';
+import db from '../config/db.ts';
+import { createCurationForStyle } from '../services/style-service.ts';
+import { getCurationList } from '../services/style-service.ts';
+import { comparePassword } from '../utils/compare-password.ts';
 
 // 유틸 함수
 async function getOrCreateTagIds(tagNames = []) {

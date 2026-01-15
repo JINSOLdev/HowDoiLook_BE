@@ -1,6 +1,6 @@
 import { Router } from 'express';
-import RankController from '../controllers/rank-controller.js';
-import { validateRequest, getRankingListSchema } from '../middlewares/dto-middleware.js';
+import RankController from '../controllers/rank-controller.ts';
+import { validateRequest, getRankingListSchema } from '../middlewares/dto-middleware.ts';
 
 const router = Router();
 

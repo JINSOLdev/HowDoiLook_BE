@@ -1,4 +1,4 @@
-import { updateCurationService, deleteCurationService } from '../services/curation-service.js';
+import { updateCurationService, deleteCurationService } from '../services/curation-service.ts';
 
 
 export class CurationController {

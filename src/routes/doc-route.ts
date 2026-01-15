@@ -1,5 +1,5 @@
 import express from 'express';
-import { swaggerMiddlewareStatic, swaggerMiddlewareRender } from '../middlewares/swagger-middleware.js';
+import { swaggerMiddlewareStatic, swaggerMiddlewareRender } from '../middlewares/swagger-middleware.ts';
 
 const docRouter = express.Router();
 

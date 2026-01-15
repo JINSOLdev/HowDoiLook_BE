@@ -1,6 +1,6 @@
-import db from '../config/db.js';
-import { comparePassword } from '../utils/compare-password.js';
-import { hashPassword } from '../utils/hash-password.js';
+import db from '../config/db.ts';
+import { comparePassword } from '../utils/compare-password.ts';
+import { hashPassword } from '../utils/hash-password.ts';
 
 // 답글 등록
 export const createCommentService = async ({ password, content, curationId }) => {
@@ -106,7 +106,6 @@ export const deleteCommentService = async ({ password, commentId }) => {
     error.statusCode = 403;
     throw error;
   }
-
 
   await db.comment.delete({
     where: { commentId: comment.commentId },

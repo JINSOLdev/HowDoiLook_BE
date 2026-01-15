@@ -1,4 +1,4 @@
-import RankService from '../services/rank-service.js';
+import RankService from '../services/rank-service.ts';
 
 class RankController {
   constructor() {

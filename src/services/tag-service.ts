@@ -1,4 +1,4 @@
-import db from '../config/db.js';
+import db from '../config/db.ts';
 
 export default class TagService {
   static getTagList = async () => {

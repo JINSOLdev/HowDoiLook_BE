@@ -1,7 +1,7 @@
 import path from 'path';
 import fs from 'fs';
-import ImageUploadService from '../services/image-service.js';
-import bucket from '../config/firebase-admin.js';
+import ImageUploadService from '../services/image-service.ts';
+import bucket from '../config/firebase-admin.ts';
 
 class ImageUploadController {
   constructor() {

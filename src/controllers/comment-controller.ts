@@ -1,4 +1,4 @@
-import { createCommentService, updateCommentService, deleteCommentService } from '../services/comment-service.js';
+import { createCommentService, updateCommentService, deleteCommentService } from '../services/comment-service.ts';
 
 export class CommentController {
   // 댓글 등록
