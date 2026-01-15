@@ -1,14 +1,22 @@
 {
     "compilerOptions": {
         "allowJs": true,
-        "target": "es6",
+        "target": "es2022",
+        "lib": ["ES2022"],
+        "module": "nodenext",
+        "moduleResolution": "nodenext",
+        "rootDir": "./src",
         "outDir": "./dist",
-        "moduleResolution": "node",
-        "lib": ["ES2015", "DOM", "DOM.Iterable"],
+        "strict": true,
+        "noImplicitAny": true,
         "esModuleInterop": true,
+        "forceConsistentCasingInFileNames": true,
+        "skipLibCheck": true,
+        "resolveJsonModule": true,
+        "types": ["node"],
         "noEmit": true,
         "allowImportingTsExtensions": true,
     },
-    "include": ["./src/**/*"],
+    "include": ["./src/**/*", "./src/**/*.ts", "./src/**/*.d.ts"],
     "exclude": ["node_modules", "dist"]
 }

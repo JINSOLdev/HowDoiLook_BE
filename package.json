@@ -1,34 +1,21 @@
 {
-  "name": "nb02-how-do-i-look-team1",
+  "name": "HowDoILook",
   "version": "1.0.0",
-  "description": "## Entity Relationship Diagram ![erd](/resource/erd.png)",
   "engines": {
     "node": ">=22.15.0"
   },
   "main": "index.js",
   "prisma": {
-    "seed": "node prisma/seed.js"
+    "seed": "node prisma/seed.ts"
   },
   "scripts": {
-    "reset": "npx prisma migrate reset -f",
-    "migrate": "npx prisma migrate dev",
-    "dev": "nodemon index.js",
-    "start": "node index.js",
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
-    "format": "prettier --write ."
+    "build": "tsc",
+    "dev": "nodemon --watch dist/index.js",
+    "start": "node dist/index.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/gyunam-bark/nb02-how-do-i-look-team1.git"
-  },
-  "keywords": [],
+    "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/gyunam-bark/nb02-how-do-i-look-team1/issues"
-  },
-  "homepage": "https://github.com/gyunam-bark/nb02-how-do-i-look-team1#readme",
   "dependencies": {
     "bcrypt": "^6.0.0",
     "cors": "^2.8.5",
@@ -37,20 +24,24 @@
     "firebase-admin": "^13.4.0",
     "morgan": "^1.10.0",
     "multer": "^2.0.0",
-    "superstruct": "^2.0.2",
     "swagger-ui-express": "^5.0.1"
   },
   "type": "module",
   "devDependencies": {
     "@prisma/client": "^6.9.0",
+    "@types/bcrypt": "^6.0.0",
     "@types/cors": "^2.8.19",
     "@types/morgan": "^1.9.10",
+    "@types/multer": "^2.0.0",
+    "@types/swagger-ui-express": "^4.1.8",
     "eslint": "^9.28.0",
     "eslint-config-prettier": "^10.1.5",
     "eslint-plugin-prettier": "^5.4.1",
     "nodemon": "^3.1.10",
     "prettier": "^3.5.3",
     "prisma": "^6.9.0",
+    "superstruct": "^2.0.2",
+    "ts-node": "^10.9.2",
     "typescript": "^5.9.3"
   }
 }
