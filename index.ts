@@ -1,18 +1,23 @@
 /**
  * 프로그램의 시작점 (entry point)
  * Server 클래스를 생성하고 실행만 함
-**/
+ **/
 import dotenv from 'dotenv';
 import Server from './src/server.ts';
-import { readSwaggerJson } from './src/middlewares/swagger-middleware.js';
+import { readSwaggerJson } from './src/middlewares/swagger-middleware.ts';
 
-const main = async () => {
-  dotenv.config();
+async function main(): Promise<void> {
+  try {
+    dotenv.config();
 
-  await readSwaggerJson();
+    await readSwaggerJson();
 
-  const server = new Server();  // 객체(인스턴스) 생성
-  server.run();  // 객체 기능 실행
-};
+    const server = new Server();
+    server.run();
+  } catch (error) {
+    console.error('Error starting the server:', error);
+    process.exit(1);
+  }
+}
 
-main();
+void main();
